@@ -1,0 +1,4 @@
+﻿  Ej2_cuadrado_magico.cpp
+C:\Users\Alison\OneDrive\Escritorio\algo3_programas\Ej2_cuadrado_magico\Ej2_cuadrado_magico.cpp(79,27): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Alison\OneDrive\Escritorio\algo3_programas\Ej2_cuadrado_magico\Ej2_cuadrado_magico.cpp(152): warning C4715: 'sumaParcialValida': no todas las rutas de acceso de control devuelven un valor
+  Ej2_cuadrado_magico.vcxproj -> C:\Users\Alison\OneDrive\Escritorio\algo3_programas\Ej2_cuadrado_magico\x64\Debug\Ej2_cuadrado_magico.exe
