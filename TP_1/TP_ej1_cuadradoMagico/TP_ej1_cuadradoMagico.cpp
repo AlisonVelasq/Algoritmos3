@@ -10,14 +10,10 @@ void vectorConValores(int* vecNums, int tam);
 void inicializar_Ceros(int** cm, int n);
 void printfCuadrado(int n, int** c);
 
+bool sumaParcialValida(int** cm, int n, int f, int c, int numMag, int k);
+bool cuadradoMagico(int**& cm, int orden, int f, int c, int numMag, int* vecNums, int* cantMagico, int k, bool res);
 int sumoColum(int** cm, int f, int c);
 int sumoFila(int** cm, int f, int c);
-
-bool sumaParcialValida(int** cm, int n, int f, int c, int numMag, int k);
-int cuadradoMagico(int**& cm, int orden, int f, int c, int numMag, int* vecNums, int* cantMagico, int k);
-
-void prinfvector(int* v, int n);
-
 bool sumoFilaVal(int** cm, int f, int c, int n , int numM);
 bool sumoColumVal(int** cm, int f, int c, int n, int numMag);
 
@@ -35,10 +31,10 @@ int main()
 	*cantCuadradosMag = 0;
 	int tam = n * n;
 	int** cm;
-	// asignar memoria dinámica para alojar la matriz
-	cm = new int* [n]; // alojar n punteros a entero
+
+	cm = new int* [n]; 
 	for (int i = 0; i < n; i++) {
-		cm[i] = new int[n]; // alojar n enteros en cada fila
+		cm[i] = new int[n];
 	}
 	//uso un vector con los numeros disponibles para el cuadrado magico
 	int* vecNums = new int[tam];
@@ -51,12 +47,12 @@ int main()
 	int res = 0;
 	int numMag = (pow(n, 3) + n) / 2;
 
-	res = cuadradoMagico(cm, n, 0, 0, numMag, vecNums, cantCuadradosMag, k);
+	res = cuadradoMagico(cm, n, 0, 0, numMag, vecNums, cantCuadradosMag, k, false);
 
-	if (res != 0) cout << "-1" << endl;
+	if (res != true) cout << "-1" << endl;
 	
-	clock_t fin = clock(); // tiempo de fin
-	double duracion = double(fin - inicio) / CLOCKS_PER_SEC; // duración en segundos
+	clock_t fin = clock(); 
+	double duracion = double(fin - inicio) / CLOCKS_PER_SEC; 
 
 	cout << "tiempo de ejecucion:" << duracion << endl;
 
@@ -65,13 +61,13 @@ int main()
 }
 
 
-int cuadradoMagico(int**& cm, int n, int f, int c, int numMag, int* vecNums, int* cantMagico, int k) {
+bool cuadradoMagico(int**& cm, int n, int f, int c, int numMag, int* vecNums, int* cantMagico, int k, bool res) {
 	int x = 0;
 	for (int i = 0; i < n * n; i++) {
-		if (*cantMagico == k) {		
-			return 0;	
+		if (*cantMagico == k) {
+			return true;
 		}
-		if (*cantMagico < k) {
+		if (*cantMagico <= k) {
 
 			if (vecNums[i] != 0) { //para no repetir, marco con ceros los que ya use
 				x = vecNums[i];
@@ -79,8 +75,8 @@ int cuadradoMagico(int**& cm, int n, int f, int c, int numMag, int* vecNums, int
 					cm[f][c] = x;
 					vecNums[i] = 0;
 
-					if (c < n - 1) cuadradoMagico(cm, n, f, c + 1, numMag, vecNums, cantMagico, k);
-					else if (f < n - 1) cuadradoMagico(cm, n, f + 1, 0, numMag, vecNums, cantMagico, k);
+					if (c < n - 1)  res = cuadradoMagico(cm, n, f, c + 1, numMag, vecNums, cantMagico, k, res);
+					else if (f < n - 1) res = cuadradoMagico(cm, n, f + 1, 0, numMag, vecNums, cantMagico, k, res);
 
 					//compruebo si termino el cuadrado magico
 					if (f == n - 1 && c == n - 1) { //completo el ult elem con exito
@@ -89,11 +85,10 @@ int cuadradoMagico(int**& cm, int n, int f, int c, int numMag, int* vecNums, int
 						if (*cantMagico == k) { //imprimo adentro, no encontre forma de hacerlo fuera
 
 							printfCuadrado(n, cm);
-							return 0;
+							res = true;
+							return true;
 						}
-
 					}
-
 					cm[f][c] = 0; //si volvio es que ese camino no funciono
 					vecNums[i] = i + 1; //"saco el cero"
 
@@ -103,6 +98,7 @@ int cuadradoMagico(int**& cm, int n, int f, int c, int numMag, int* vecNums, int
 
 		}
 	}
+	return res;
 }
 
 bool sumaParcialValida(int** cm, int n, int f, int c, int numMag, int k) {
@@ -187,8 +183,6 @@ bool sumasParciales(int** cm, int f, int c, int n, int numM) {
 
 
 void printfCuadrado(int n, int** c) {
-	printf("cuadrado magico: \n");
-
 	for (int i = 0; i < n; i++) {
 		for (int j = 0; j < n; j++) {
 			cout << c[i][j] << " ";
@@ -210,10 +204,4 @@ void inicializar_Ceros(int** cm, int n) {
 			cm[i][j] = 0;
 		}
 	}
-}
-void prinfvector(int* v, int n) {
-	for (int i = 0; i < n; i++) {
-		cout << v[i] << " ";
-	}
-	cout << "\n";
 }

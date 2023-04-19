@@ -1,1 +1,2 @@
 C:\Users\Alison\OneDrive\Escritorio\algo3_programas\TP_ej1_cuadradoMagico\x64\Debug\TP_ej1_cuadradoMagico.exe
+C:\Users\Alison\OneDrive\Escritorio\REPOS-ALI\CS-aed3\TP_1\TP_ej1_cuadradoMagico\x64\Debug\TP_ej1_cuadradoMagico.exe

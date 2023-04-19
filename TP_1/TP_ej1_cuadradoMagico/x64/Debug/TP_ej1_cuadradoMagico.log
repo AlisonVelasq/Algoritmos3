@@ -1,4 +1,4 @@
 ﻿  TP_ej1_cuadradoMagico.cpp
-C:\Users\Alison\OneDrive\Escritorio\algo3_programas\TP_ej1_cuadradoMagico\TP_ej1_cuadradoMagico.cpp(52,13): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\Alison\OneDrive\Escritorio\algo3_programas\TP_ej1_cuadradoMagico\TP_ej1_cuadradoMagico.cpp(106): warning C4715: 'cuadradoMagico': no todas las rutas de acceso de control devuelven un valor
-  TP_ej1_cuadradoMagico.vcxproj -> C:\Users\Alison\OneDrive\Escritorio\algo3_programas\TP_ej1_cuadradoMagico\x64\Debug\TP_ej1_cuadradoMagico.exe
+C:\Users\Alison\OneDrive\Escritorio\REPOS-ALI\CS-aed3\TP_1\TP_ej1_cuadradoMagico\TP_ej1_cuadradoMagico.cpp(48,13): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\Alison\OneDrive\Escritorio\REPOS-ALI\CS-aed3\TP_1\TP_ej1_cuadradoMagico\TP_ej1_cuadradoMagico.cpp(52,13): warning C4805: '!=': combinación no segura del tipo 'int' y el tipo 'bool' en la operación
+  TP_ej1_cuadradoMagico.vcxproj -> C:\Users\Alison\OneDrive\Escritorio\REPOS-ALI\CS-aed3\TP_1\TP_ej1_cuadradoMagico\x64\Debug\TP_ej1_cuadradoMagico.exe
